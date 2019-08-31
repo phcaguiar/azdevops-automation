@@ -1,0 +1,22 @@
+---
+- name: Create Azure DevOps Build Definition
+  hosts: localhost
+  gather_facts: true
+  tasks:
+
+    - name: Register base command as fact in variable run_command
+      set_fact:
+        run_command: "az pipelines create --name {{ azure_devops_build_name }} --description {{ azure_devops_build_description }} --yml-path azure/.azure-pipelines.yaml --repository https://github.com/stone-payments/{{ github_repository_name }} --branch {{ github_branch }} --project {{ azure_devops_project_name }}"
+
+    - name: "Create {{ azure_devops_build_name }} build definition in {{ azure_devops_project_name }} project"
+      set_fact:
+        run_command: "{{ run_command }} --service-connection {{ finprods_tribe_github_svc_connection_id }}"
+      when: azure_devops_project_name == "finprods-tribe"
+
+    - name: "Create {{ azure_devops_build_name }} build definition in {{ azure_devops_project_name }} project"
+      set_fact:
+        run_command: "{{ run_command }} --service-connection {{ fin_prepayment_github_svc_connection_id }}"
+      when: azure_devops_project_name == "fin-prepayment"      
+
+    - name: Create Build Definition
+      command: "{{ run_command }}"  

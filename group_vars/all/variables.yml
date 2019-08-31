@@ -1,0 +1,11 @@
+---
+# Default variables
+finprods_tribe_github_svc_connection_id: "{{ lookup('env','finprods_tribe_github_svc_connection_id') }}"
+fin_prepayment_github_svc_connection_id: "{{ lookup('env','fin_prepayment_github_svc_connection_id') }}"
+
+# Build definition variables
+azure_devops_project_name: "fin-prepayment"
+azure_devops_build_name: "AutomationTest-CI"
+azure_devops_build_description: "AutomationTest"
+github_repository_name: "infra-receivable-advance"
+github_branch: "master"
