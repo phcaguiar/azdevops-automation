@@ -1,0 +1,19 @@
+variables:
+- variable: 'azure_devops_token'
+- variable: 'fin_prepayment_github_svc_connection_id'
+- variable: 'finprods_tribe_github_svc_connection_id'
+
+jobs:
+- job: Ansible
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+
+- bash: |
+   ansible-playbook playbook.yml
+   
+  displayName: 'Ansible Playbook'
+  env:
+    azure_devops_token: $(azure_devops_token)
+    fin_prepayment_github_svc_connection_id: $(fin_prepayment_github_svc_connection_id)
+    finprods_tribe_github_svc_connection_id: $(finprods_tribe_github_svc_connection_id)
