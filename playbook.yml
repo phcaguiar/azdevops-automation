@@ -4,8 +4,11 @@
   gather_facts: true
   tasks:
 
-    - name: Login in Azure DevOps
-      shell: "export AZURE_DEVOPS_EXT_PAT={{ azure_devops_token }} && echo $AZURE_DEVOPS_EXT_PAT | az devops login --organization https://dev.azure.com/stonepagamentos"
+    - name: Add azure-devops extension
+      shell: "az extension add --name azure-devops"
+
+    - name: Login in Azure DevOps 
+      shell: "export AZURE_DEVOPS_EXT_PAT={{ azure_devops_token }} && echo $AZURE_DEVOPS_EXT_PAT | az devops login --organization https://dev.azure.com/stonepagamentos"  
 
     - name: Register base command as fact in variable run_command
       set_fact:
