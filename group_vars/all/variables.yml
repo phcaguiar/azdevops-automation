@@ -1,5 +1,6 @@
 ---
 # Default variables
+azure_devops_token: "{{ lookup('env','azure_devops_token') }}"
 finprods_tribe_github_svc_connection_id: "{{ lookup('env','finprods_tribe_github_svc_connection_id') }}"
 fin_prepayment_github_svc_connection_id: "{{ lookup('env','fin_prepayment_github_svc_connection_id') }}"
 
