@@ -1,0 +1,28 @@
+{
+    "buildDefinition": [
+        {
+            "name": "test-automation2-CI",
+            "project": "test-automation",
+            // "project": [
+            //     {
+            //         "name": "test-automation"
+            //     }
+            // ],
+            "badgeEnabled": "True",
+            "buildNumberFormat": "1.2.$(Date:yyMM).$(Date:dd)$(Rev:rr)",
+            "queue": "ubuntu-16.04",
+            // "queue": [
+            //     {
+            //         "name": "ubuntu-16.04"
+            //     }
+            // ],
+            "repository": [
+                {
+                    "name": "stone-payments/infra-baffa",
+                    "type": "Git",
+                    "defaultBranch": "master"
+                }
+            ]
+        }
+    ]
+}

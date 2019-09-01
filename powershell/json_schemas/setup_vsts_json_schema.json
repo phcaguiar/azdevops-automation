@@ -1,0 +1,88 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "type": "object",
+    "properties": {
+        "buildDefinition": {
+            "type": "array",
+            "items": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "badgeEnabled": {
+                            "type": "boolean"
+                        },
+                        "buildNumberFormat": {
+                            "type": "string"
+                        },
+                        "queue": {
+                            "type": "string",
+                            "items": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "name"
+                                    ]
+                                }
+                            ]
+                        },
+                        "project": {
+                            "type": "array",
+                            "items": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "name"
+                                    ]
+                                }
+                            ]
+                        },
+                        "repository": {
+                            "type": "array",
+                            "items": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "type": {
+                                            "type": "string"
+                                        },
+                                        "defaultBranch": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "name",
+                                        "type",
+                                        "defaultBranch"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "project",
+                        "repository",
+                        "queue"
+                    ]
+                }
+        }
+    },
+    "required": [
+        "buildDefinition"
+    ]
+}
