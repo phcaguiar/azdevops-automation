@@ -6,7 +6,7 @@ fin_prepayment_github_svc_connection_id: "{{ lookup('env','fin_prepayment_github
 finprods_split_github_svc_connection_id: "{{ lookup('env','finprods_split_github_svc_connection_id') }}"
 
 # Build definition variables
-azure_devops_project_name: "fin-prepayment"
+azure_devops_project_name: "finprods-split"
 azure_devops_build_name: "infra-circularisation-CI"
 azure_devops_build_description: "Circularization Infrastructure Build Definition"
 github_repository_name: "infra-circularisation-api"
