@@ -12,7 +12,7 @@
 
     - name: Register base command as fact in variable run_command
       set_fact:
-        run_command: "az pipelines create --name {{ azure_devops_build_name }} --description {{ azure_devops_build_description }} --yml-path ./azure-pipelines.yml --repository https://github.com/stone-payments/{{ github_repository_name }} --branch {{ github_branch }} --project {{ azure_devops_project_name }}"
+        run_command: "az pipelines create --name {{ azure_devops_build_name }} --description {{ azure_devops_build_description }} --yml-path src/azure/azure-pipelines.yml --repository https://github.com/stone-payments/{{ github_repository_name }} --branch {{ github_branch }} --project {{ azure_devops_project_name }}"
 
     - name: "Create {{ azure_devops_build_name }} build definition in {{ azure_devops_project_name }} project"
       set_fact:
