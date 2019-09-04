@@ -22,7 +22,12 @@
     - name: "Create {{ azure_devops_build_name }} build definition in {{ azure_devops_project_name }} project"
       set_fact:
         run_command: "{{ run_command }} --service-connection {{ fin_prepayment_github_svc_connection_id }}"
-      when: azure_devops_project_name == "fin-prepayment"      
+      when: azure_devops_project_name == "fin-prepayment"
+
+    - name: "Create {{ azure_devops_build_name }} build definition in {{ azure_devops_project_name }} project"
+      set_fact:
+        run_command: "{{ run_command }} --service-connection {{ finprods_split_github_svc_connection_id }}"
+      when: azure_devops_project_name == "finprods-split"       
 
     - name: Create Build Definition
       command: "{{ run_command }}"
